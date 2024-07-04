@@ -5,6 +5,8 @@
 > - 실시간 로그 생성 : smartcar.log
 > - 일단위 로그 생성 : driver.log
 
+---
+
 ## 2. 플럼 설치
 > - apache-flume 1.11.0 설치
 > - .bashrc 경로 설정
