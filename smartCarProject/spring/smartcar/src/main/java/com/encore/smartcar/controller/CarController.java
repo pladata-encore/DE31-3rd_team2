@@ -3,17 +3,17 @@ package com.encore.smartcar.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import com.encore.smartcar.data.dto.CarData;
 
-@RestController
-@RequestMapping("/Car")
+@Controller
+@RequestMapping("/")
 public class CarController {
     private List<CarData> dataList = new ArrayList<>();
 
@@ -31,7 +31,7 @@ public class CarController {
         return "index";
     }
 
-    @PostMapping("/a")
+    @PostMapping("/")
     public String addData(@RequestBody CarData carData, Model model) {
         dataList.add(carData);
         model.addAttribute("dataList", dataList);

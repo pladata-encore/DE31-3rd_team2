@@ -29,7 +29,7 @@
 </head>
 <body>
     <h2>Data Table</h2>
-    <form method="POST" action="/a">
+    <form id="d2n" method="POST" action="/">
         <label for="date">Date:</label>
         <input type="text" id="date" name="date" placeholder="Enter date (YYYY-MM-DD)" required>
         <label for="content">Content:</label>
@@ -55,6 +55,22 @@
     </table>
 
     <script>
+        document.getElementById("d2n").addEventListener('submit',function(event){
+            event.preventDefault();
+            const form = event.target;
+            const formData = new FormData(form);
+            const formDataObject = Object.fromEntries(formData.entries());
+            const json = JSON.stringify(formDataObject);
+            fetch('/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: json
+            })
+            window.location.href = "/"
+        });
+
         function searchDate() {
             const searchDate = document.getElementById('searchDate').value;
             const table = document.getElementById('dataTable');
@@ -72,7 +88,7 @@
                     }
                 }
             }
-
+            
             if (!found) {
                 alert('No content found for the given date.');
             }
