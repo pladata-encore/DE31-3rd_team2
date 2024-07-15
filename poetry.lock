@@ -259,10 +259,8 @@ mllib = ["numpy (>=1.15)"]
 pandas-on-spark = ["numpy (>=1.15)", "pandas (>=1.0.5)", "pyarrow (>=1.0.0)"]
 sql = ["pandas (>=1.0.5)", "pyarrow (>=1.0.0)"]
 
-
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
 
 content-hash = "fa47047b17509b0c288baf115a60df067fdcb88c0d61a38a7759b1735b2f6ef7"
-
