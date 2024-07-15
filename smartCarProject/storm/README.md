@@ -1,5 +1,32 @@
 # Storm
 
+## How to set
+
+**Storm download** 
+```
+wget https://dlcdn.apache.org/storm/apache-storm-2.6.2/apache-storm-2.6.2.tar.gz
+tar -zxvf apache-storm-2.6.2.tar.gz 
+mv apache-storm-2.6.2.tar.gz storm
+```
+
+**Nimbus & supervisor setting***
+```
+# storm/conf/storm.yaml file
+
+storm.zookeeper.servers:
+    - "broker2"
+    - "broker3"
+    - "broker4"
+
+nimbus.seeds: ["broker1"]
+```
+
+## How to use 
+```
+mvn clean package
+
+```
+
 ## Environment
 - openjdk : t8
 - kafk:3.4
