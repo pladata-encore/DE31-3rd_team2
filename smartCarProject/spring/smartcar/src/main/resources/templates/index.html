@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Visualization</title>
+    <style>
+        table {
+            width: 50%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 18px;
+            text-align: left;
+        }
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+    <h2>Data Table</h2>
+    <form method="POST" action="/a">
+        <label for="date">Date:</label>
+        <input type="text" id="date" name="date" placeholder="Enter date (YYYY-MM-DD)" required>
+        <label for="content">Content:</label>
+        <input type="text" id="content" name="content" placeholder="Enter content" required>
+        <button type="submit">Add</button>
+    </form>
+    <br>
+    <input type="text" id="searchDate" placeholder="Enter date (YYYY-MM-DD)">
+    <button onclick="searchDate()">Search</button>
+    <table id="dataTable">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Contents</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="data : ${dataList}">
+                <td th:text="${data.date}"></td>
+                <td th:text="${data.content}"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        function searchDate() {
+            const searchDate = document.getElementById('searchDate').value;
+            const table = document.getElementById('dataTable');
+            const rows = table.getElementsByTagName('tr');
+            let found = false;
+
+            for (let i = 1; i < rows.length; i++) { // Skip the header row
+                const dateCell = rows[i].getElementsByTagName('td')[0];
+                if (dateCell) {
+                    const dateValue = dateCell.textContent || dateCell.innerText;
+                    if (dateValue === searchDate) {
+                        alert(`Content: ${rows[i].getElementsByTagName('td')[1].textContent}`);
+                        found = true;
+                        break;
+                    }
+                }
+            }
+
+            if (!found) {
+                alert('No content found for the given date.');
+            }
+        }
+    </script>
+</body>
+</html>
