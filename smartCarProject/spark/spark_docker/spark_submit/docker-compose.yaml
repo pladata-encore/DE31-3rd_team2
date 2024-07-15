@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  spark-master:
+    image: bde2020/spark-submit:3.3.0-hadoop3.3
+    container_name: spark-submit
+    network_mode: "host"
+    environment:
+      - SPARK_MASTER=yarn
+      - HADOOP_CONF_DIR=/etc/hadoop
+    volumes:
+      - ../hadoop-conf:/etc/hadoop
+      - ../workspace:/workspace
+    entrypoint: ["spark/bin/spark-submit", "--master", "spark://192.168.0.159:17077", "/workspace/example.py"]
