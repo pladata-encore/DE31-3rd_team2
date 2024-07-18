@@ -163,8 +163,5 @@ cython_debug/
 #.idea/
 #
 
-#Author Daegun
-#Storm
+#storm
 smartCarProject/storm/target/
-#Spring
-smartCarProject/spring/smartcar/target/
