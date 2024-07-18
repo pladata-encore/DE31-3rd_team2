@@ -8,10 +8,6 @@ This project involves setting up a Hadoop ecosystem to process logs received fro
 ## Table of Contents
 
 - [Tech Stack](#tech-stack)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Tech Stack
 ### Data Ingestion
